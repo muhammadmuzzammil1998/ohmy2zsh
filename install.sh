@@ -51,7 +51,6 @@ main() {
   if [ ! $CHECK_ZSH_INSTALLED -ge 1 ]; then
     printf "${YELLOW}Zsh is not installed!${NORMAL} Installing zsh.\n"
     sudo apt-get update -y
-    sudo apt-get upgrade -y
     sudo apt install zsh -y
   fi
   unset CHECK_ZSH_INSTALLED
