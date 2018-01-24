@@ -49,8 +49,10 @@ main() {
 
   CHECK_ZSH_INSTALLED=$(grep /zsh$ /etc/shells | wc -l)
   if [ ! $CHECK_ZSH_INSTALLED -ge 1 ]; then
-    printf "${YELLOW}Zsh is not installed!${NORMAL} Please install zsh first!\n"
-    exit
+    printf "${YELLOW}Zsh is not installed!${NORMAL} Installing zsh.\n"
+    sudo apt-get update -y
+    sudo apt-get upgrade -y
+    sudo apt install zsh -y
   fi
   unset CHECK_ZSH_INSTALLED
 
@@ -118,20 +120,19 @@ main() {
   fi
 
   printf "${GREEN}"
-  echo '         __                                     __   '
-  echo '  ____  / /_     ____ ___  __  __   ____  _____/ /_  '
-  echo ' / __ \/ __ \   / __ `__ \/ / / /  /_  / / ___/ __ \ '
-  echo '/ /_/ / / / /  / / / / / / /_/ /    / /_(__  ) / / / '
-  echo '\____/_/ /_/  /_/ /_/ /_/\__, /    /___/____/_/ /_/  '
-  echo '                        /____/                       ....is now installed!'
+
+  echo '         __                          ___              __  '
+  echo '  ____  / /_     ____ ___  __  __   |__ \ ____  _____/ /_ '
+  echo ' / __ \/ __ \   / __ `__ \/ / / /   __/ //_  / / ___/ __ \'
+  echo '/ /_/ / / / /  / / / / / / /_/ /   / __/  / /_(__  ) / / /'
+  echo '\____/_/ /_/  /_/ /_/ /_/\__, /   /____/ /___/____/_/ /_/ '
+  echo '                        /____/                           ....is now installed'
   echo ''
   echo ''
   echo 'Please look over the ~/.zshrc file to select plugins, themes, and options.'
   echo ''
-  echo 'p.s. Follow us at https://twitter.com/ohmyzsh.'
-  echo ''
-  echo 'p.p.s. Get stickers and t-shirts at https://shop.planetargon.com.'
-  echo ''
+  echo 'p.s. Follow ohmyzsh at https://twitter.com/ohmyzsh.'
+  echo 'p.p.s. ohmy2zsh by Muhammad Muzzammil, https://muzzammil.xyz.'
   printf "${NORMAL}"
   env zsh
 }
